@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdarg.h>
+void print_str(char *arr)
+{
+    while (arr != NULL && *arr != '\0'){
+    write(1, arr++, sizeof(char));
+    }
+}
+int _printf(const char *format, ...)
+{
+    unsigned int num_args;
+    unsigned int i = 0; 
+    va_list args;
+    
+    va_start(args, format);
+    num_args = strlen(format);
+    for (i = 0; i < num_args; i++)
+    {   
+     if (format[i++] == '%'){
+     switch (format[i]){
+     case 'c':
+     char c = va_arg(args,int);
+     write(1,&c, 1);
+     break;
+     case 's':
+     char *str = va_arg(args, char *);
+     print_str(str);
+     break;
+     
+     
+    
+     
+    }
+}
+}
+    
+}
