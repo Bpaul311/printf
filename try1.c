@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 
     va_start(args, format);
     if (format  == NULL)
-            exit (1);
+            return (0);
     num_args = strlen(format);
     for (i = 0; i < num_args; i++) {
         if (format[i] == '%')
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
                 c = '%';
                 write(1, &c, 1);
                 buff_size++;
-                break;
+  `              break;
             default:
             case 'd':
             case 'i':
