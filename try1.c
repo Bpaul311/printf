@@ -68,7 +68,7 @@ int _printf(const char *format, ...)
     unsigned int unum;
     char c;
     char *str;
-    int num;
+    int num, binary;
     size_t buff_size = 0;
     va_list args;
 
@@ -103,8 +103,12 @@ int _printf(const char *format, ...)
                 break;
             case 'u':
                 unum = va_arg(args, unsigned int);
-                unum < 0 ? (unum = unum) : (unum = -unum);
                 print_number(unum);
+                break;
+            case 'b':
+                num = va_arg(args, unsigned int);
+                binary = converter(num, 2);
+                print_number(binary);
                 break;
             }
         }
