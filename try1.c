@@ -1,16 +1,4 @@
 #include "main.h"
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-    return (write(1, &c, 1));
-}
-
 void print_str(char *arr)
 {
     while (arr != NULL && *arr != '\0')
@@ -19,7 +7,7 @@ void print_str(char *arr)
     }
 }
 /**
- * print_number - prints an integer using _printchar
+ * print_number - prints an integer using _putchar
  * @n: the integer to print
  */
 
