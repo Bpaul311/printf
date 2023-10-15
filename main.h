@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
-#include <strings.h>
-#include <string.h>
 #include <stdarg.h>
 #include <unistd.h>
 /*function prototypes*/
@@ -16,5 +14,5 @@ int _printf(const char *format, ...);
 unsigned int converter(unsigned int num, int base);
 void print_number(int n);
 void print_str(char *arr);
-
+int _strlen(const char *s);
 #endif /*MAIN_H*/
