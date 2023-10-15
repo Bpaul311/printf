@@ -1,4 +1,9 @@
 #include "main.h"
+/* 
+ * printstr - prints a string 
+ * arr: a character pointer to be printer
+ * Return : NOthing 
+ */
 void print_str(char *arr)
 {
     if (*arr)

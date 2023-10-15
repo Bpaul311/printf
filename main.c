@@ -1,14 +1,16 @@
-#include <limits.h>
 #include <stdio.h>
+#include <limits.h>
 #include "main.h"
+<<<<<<< HEAD
 
-/**
- * main - Entry point
- *
- * Return: Always 0 but sometimes not
- *
- */
-int main(void)
+	/**
+	 * main - Entry point
+	 *
+	 * Return: Always 0 but sometimes not
+	 *
+	 */
+	int
+	main(void)
 {
 	int len;
 	int len2;
@@ -25,5 +27,5 @@ int main(void)
 	_printf("Unsigned:[%u]\n", ui);
 	printf("Unsigned:[%u]\n", ui);
 	_printf("%b\n", 98);
-	return (12413);
+	return (0);
 }
