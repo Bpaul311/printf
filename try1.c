@@ -59,13 +59,14 @@ void print_number(int n)
     _putchar('0' + (x % 10));
 }
 
+
 int _printf(const char *format, ...)
 {
     unsigned int num_args;
     unsigned int i = 0;
     char c;
     char *str;
-    int num;
+    int num, binary;
     size_t buff_size = 0;
     va_list args;
 
@@ -98,6 +99,11 @@ int _printf(const char *format, ...)
                 num = va_arg(args, int);
                 print_number(num);
                 break;
+	     case 'b':
+                num = va_arg(args,unsigned int);
+                binary = converter(num , 2) ;
+                print_number(binary);
+       		 break;
             }
         }
         else
