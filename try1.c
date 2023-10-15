@@ -1,8 +1,8 @@
 #include "main.h"
-/* 
- * printstr - prints a string 
+/*
+ * printstr - prints a string
  * arr: a character pointer to be printer
- * Return : NOthing 
+ * Return : NOthing
  */
 void print_str(char *arr)
 {
@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 
     va_start(args, format);
     num_args = strlen(format);
+    if (format == NULL || num_args == 0)
+        exit(1);
     for (i = 0; i < num_args; i++)
     {
         if (format[i] == '%')
