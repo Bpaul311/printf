@@ -6,57 +6,19 @@
  */
 void print_str(char *arr)
 {
-    while (arr != NULL && *arr != '\0')
+    if (*arr)
     {
-        write(1, arr++, sizeof(char));
-    }
-}
-/**
- * print_number - prints an integer using _putchar
- * @n: the integer to print
- */
-
-void print_number(int n)
-{
-    unsigned int tmp = 1000000000;
-    unsigned int n2, x, t2;
-
-    if (n < 0)
-    {
-        _putchar('-');
-        n = -n;
-    }
-    n2 = n;
-    x = n;
-
-    while (tmp >= 10)
-    {
-        if (n2 >= tmp)
+        while (arr != NULL && *arr != '\0')
         {
-            _putchar('0' + (n2 / tmp));
-            t2 = tmp;
-
-            while ((n2 % t2) / (t2 / 10) == 0 && n2 > 9)
-            {
-                if (t2 == 10)
-                    break;
-                _putchar('0');
-                t2 = t2 / 10;
-            }
-
-            n2 %= tmp;
+            write(1, arr++, sizeof(char));
         }
-
-        tmp = tmp / 10;
     }
-    _putchar('0' + (x % 10));
 }
-
 
 int _printf(const char *format, ...)
 {
-    unsigned int num_args;
-    unsigned int i = 0;
+    int num_args, i = 0;
+    unsigned int unum;
     char c;
     char *str;
     int num, binary;
@@ -92,11 +54,15 @@ int _printf(const char *format, ...)
                 num = va_arg(args, int);
                 print_number(num);
                 break;
-	     case 'b':
-                num = va_arg(args,unsigned int);
-                binary = converter(num , 2) ;
+            case 'u':
+                unum = va_arg(args, unsigned int);
+                print_number(unum);
+                break;
+            case 'b':
+                num = va_arg(args, unsigned int);
+                binary = converter(num, 2);
                 print_number(binary);
-       		 break;
+                break;
             }
         }
         else

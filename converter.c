@@ -29,4 +29,3 @@ unsigned int converter(unsigned int num, int base)
 	res = res + rem;
 	return (res);
 }
-
