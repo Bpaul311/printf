@@ -8,6 +8,7 @@
 #include <strings.h>
 #include <string.h>
 #include <stdarg.h>
+#include <unistd.h>
 
 /*function prototypes*/
 

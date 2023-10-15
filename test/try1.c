@@ -13,9 +13,12 @@ int _putchar(char c)
 
 void print_str(char *arr)
 {
-    while (arr != NULL && *arr != '\0')
+    if (*arr)
     {
-        write(1, arr++, sizeof(char));
+        while (arr != NULL && *arr != '\0')
+        {
+            write(1, arr++, sizeof(char));
+        }
     }
 }
 /**
@@ -61,8 +64,8 @@ void print_number(int n)
 
 int _printf(const char *format, ...)
 {
-    unsigned int num_args;
-    unsigned int i = 0;
+    int num_args, i = 0;
+    unsigned int unum;
     char c;
     char *str;
     int num;
@@ -97,6 +100,11 @@ int _printf(const char *format, ...)
             case 'i':
                 num = va_arg(args, int);
                 print_number(num);
+                break;
+            case 'u':
+                unum = va_arg(args, unsigned int);
+                unum < 0 ? (unum = unum) : (unum = -unum);
+                print_number(unum);
                 break;
             }
         }
