@@ -26,9 +26,11 @@ int _printf(const char *format, ...)
     va_list args;
 
     va_start(args, format);
+    if (format == NULL)
+        exit(1);
     num_args = strlen(format);
     if (format == NULL || num_args == 0)
-        exit(1);
+        return (1);
     for (i = 0; i < num_args; i++)
     {
         if (format[i] == '%')
@@ -74,5 +76,6 @@ int _printf(const char *format, ...)
             buff_size++;
         }
     }
+    va_end(args);
     return (buff_size);
 }
