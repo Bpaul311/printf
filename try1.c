@@ -1,16 +1,4 @@
 #include "main.h"
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-    return (write(1, &c, 1));
-}
-
 void print_str(char *arr)
 {
     if (*arr)
@@ -20,46 +8,6 @@ void print_str(char *arr)
             write(1, arr++, sizeof(char));
         }
     }
-}
-/**
- * print_number - prints an integer using _printchar
- * @n: the integer to print
- */
-
-void print_number(int n)
-{
-    unsigned int tmp = 1000000000;
-    unsigned int n2, x, t2;
-
-    if (n < 0)
-    {
-        _putchar('-');
-        n = -n;
-    }
-    n2 = n;
-    x = n;
-
-    while (tmp >= 10)
-    {
-        if (n2 >= tmp)
-        {
-            _putchar('0' + (n2 / tmp));
-            t2 = tmp;
-
-            while ((n2 % t2) / (t2 / 10) == 0 && n2 > 9)
-            {
-                if (t2 == 10)
-                    break;
-                _putchar('0');
-                t2 = t2 / 10;
-            }
-
-            n2 %= tmp;
-        }
-
-        tmp = tmp / 10;
-    }
-    _putchar('0' + (x % 10));
 }
 
 int _printf(const char *format, ...)
