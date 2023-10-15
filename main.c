@@ -5,7 +5,8 @@
 /**
  * main - Entry point
  *
- * Return: Always 0
+ * Return: Always 0 but sometimes not
+ *
  */
 int main(void)
 {
