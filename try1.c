@@ -29,8 +29,6 @@ int _printf(const char *format, ...)
     if (format == NULL)
         exit(1);
     num_args = strlen(format);
-    if (format == NULL || num_args == 0)
-        return (1);
     for (i = 0; i < num_args; i++)
     {
         if (format[i] == '%')
