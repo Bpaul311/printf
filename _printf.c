@@ -26,10 +26,10 @@ int print_str(char *arr)
 int _printf(const char *format, ...)
 {
 	int num_args, i = 0;
-	unsigned int unum;
+	unsigned int unum, binary;
 	char c;
 	char *str;
-	unsigned int num, binary;
+	int num;
 	int buff_size = 0;
 	va_list args;
 
@@ -69,8 +69,11 @@ int _printf(const char *format, ...)
 				print_number(unum);
 				break;
 			case 'b':
-				num = va_arg(args, unsigned int);
-				binary = converter(num, 2);
+				num = va_arg(args, int);
+				if (num < 0)
+					break;
+				unum = (unsigned int) num;
+				binary = converter(unum, 2);
 				buff_size += print_number(binary);
 				break;
 			case '\0':
