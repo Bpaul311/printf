@@ -69,8 +69,6 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				num = va_arg(args, unsigned int);
-				if (num > 1027 || num < 0)
-					break;
 				binary = converter(num, 2);
 				buff_size += print_number(binary);
 				break;
