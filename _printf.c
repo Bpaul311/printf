@@ -82,8 +82,6 @@ int _printf(const char *format, ...)
 			case '+':
 				break;
 			default:
-				if (format[i + 1] == '\0' && (format[i] > 47 && format[i] < 58))
-					break;
 				_putchar(format[--i]);
 				_putchar(format[++i]);
 				buff_size += 2;
