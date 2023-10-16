@@ -43,17 +43,15 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 				c = va_arg(args, int);
-				if (!c) /*c is null*/
-					exit(1);
 				write(1, &c, 1);
 				buff_size++;
 				break;
 			case 's':
 				str = va_arg(args, char *);
 				if (str == NULL)
-					exit(1);
-
-				buff_size += print_str(str);
+					buff_size += print_str("(null)");
+				else
+					buff_size += print_str(str);
 				break;
 			case '%':
 				_putchar(format[i]);
@@ -71,7 +69,7 @@ int _printf(const char *format, ...)
 			case 'b':
 				num = va_arg(args, unsigned int);
 				binary = converter(num, 2);
-				print_number(binary);
+				buff_size += print_number(binary);
 				break;
 			case '\0':
 				break;
