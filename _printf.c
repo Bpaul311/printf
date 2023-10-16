@@ -69,8 +69,8 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				num = va_arg(args, unsigned int);
-				binary = converter(num, 2);
-				buff_size += print_number(binary);
+				converter(num, 2);
+				putchar ('\n');
 				break;
 			case '\0':
 				buff_size = -1;

@@ -11,7 +11,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-unsigned int converter(unsigned int num, int base);
+void converter(unsigned int num, unsigned int base);
 int print_number(int n);
 int print_str(char *arr);
 int _strlen(const char *s);

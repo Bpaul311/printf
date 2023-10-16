@@ -6,26 +6,13 @@
  * @base: The target base for conversion.
  * Return: The converted number in @base
  */
-unsigned int converter(unsigned int num, int base)
+void converter(unsigned int num, unsigned int base)
 {
-	unsigned int div = num / base;
-	unsigned int res = 0, rem;
-	unsigned int i = 1;
+	if (num > (base - 1))
 
-	while (div > 0)
-	{
-		rem = num % base;
-		num = div;
-		div /= base;
-		rem = rem * i;
-		i *= 10;
-		res = res + rem;
-	}
-	rem = num % base;
-	num = div;
-	div /= base;
-	rem = rem * i;
-	i *= 10;
-	res = res + rem;
-	return (res);
+		converter(num / base, base);
+	if (base < 10)
+		putchar('0' + (num % base));
+	else 
+		putchar('A' + (num % base) - 10);
 }
