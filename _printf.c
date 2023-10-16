@@ -6,7 +6,7 @@
  */
 int print_str(char *arr)
 {
-	int  buff_size = 0;
+	int buff_size = 0;
 
 	if (*arr)
 	{
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 	char c;
 	char *str;
 	int num, binary;
-	int  buff_size = 0;
+	int buff_size = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -65,7 +65,7 @@ int _printf(const char *format, ...)
 				buff_size += print_number(num);
 				break;
 			case 'u':
-				unum = (unsigned int)va_arg(args, unsigned int);
+				unum = va_arg(args, unsigned int);
 				print_number(unum);
 				break;
 			case 'b':
@@ -74,6 +74,12 @@ int _printf(const char *format, ...)
 				buff_size += print_number(binary);
 				break;
 			case '\0':
+				buff_size = -1;
+				break;
+			case '-':
+				/*handle the - flag*/
+				break;
+			case '+':
 				break;
 			default:
 				_putchar(format[--i]);
