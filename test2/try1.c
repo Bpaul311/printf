@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	num_args = _strlen(format);
+	num_args = strlen(format);
 	for (i = 0; i < num_args; i++)
 	{
 		if (format[i] == '%')
@@ -43,15 +43,17 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 				c = va_arg(args, int);
+				if (!c) /*c is null*/
+					exit(1);
 				write(1, &c, 1);
 				buff_size++;
 				break;
 			case 's':
 				str = va_arg(args, char *);
 				if (str == NULL)
-					buff_size += print_str("(null)");
-				else
-					buff_size += print_str(str);
+					exit(1);
+
+				buff_size += print_str(str);
 				break;
 			case '%':
 				_putchar(format[i]);
@@ -69,9 +71,7 @@ int _printf(const char *format, ...)
 			case 'b':
 				num = va_arg(args, unsigned int);
 				binary = converter(num, 2);
-				buff_size += print_number(binary);
-				break;
-			case '\0':
+				print_number(binary);
 				break;
 			default:
 				_putchar(format[--i]);
@@ -87,6 +87,5 @@ int _printf(const char *format, ...)
 			buff_size++;
 		}
 	}
-	va_end(args);
 	return (buff_size);
 }
