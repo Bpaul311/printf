@@ -9,7 +9,7 @@ int print_number(int n)
 {
 	unsigned int tmp = 1000000000;
 	unsigned int n2, x, t2;
-	size_t buff_size = 0;
+	int  buff_size = 0;
 
 	if (n < 0)
 	{

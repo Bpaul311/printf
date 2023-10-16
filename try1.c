@@ -6,7 +6,7 @@
  */
 int print_str(char *arr)
 {
-	size_t buff_size = 0;
+	int  buff_size = 0;
 
 	if (*arr)
 	{
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 	char c;
 	char *str;
 	int num, binary;
-	size_t buff_size = 0;
+	int  buff_size = 0;
 	va_list args;
 
 	va_start(args, format);
