@@ -1,18 +1,10 @@
 #include "main.h"
-<<<<<<< HEAD
-	/**
-	 * print_str - prints a string
-	 * @arr: a character pointer to be printer
-	 * Return: size of the printed string
-	=======
-	/*
-	 * printstr - prints a string
-	 * arr: a character pointer to be printer
-	 * Return : NOthing
-	>>>>>>> b88d16410f29667efa073bf4c05cf2bbe4678fa6
-	 */
-	int
-	print_str(char *arr)
+/**
+ * print_str - prints a string
+ * @arr: a character pointer to be printer
+ * Return: size of the printed string
+ */
+int print_str(char *arr)
 {
 	size_t buff_size = 0;
 
@@ -42,7 +34,7 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	num_args = strlen(format);
+	num_args = _strlen(format);
 	for (i = 0; i < num_args; i++)
 	{
 		if (format[i] == '%')

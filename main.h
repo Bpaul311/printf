@@ -14,5 +14,6 @@ int _printf(const char *format, ...);
 unsigned int converter(unsigned int num, int base);
 int print_number(int n);
 int print_str(char *arr);
+int _strlen(const char *s);
 
 #endif /*MAIN_H*/
