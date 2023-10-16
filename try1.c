@@ -58,6 +58,7 @@ int _printf(const char *format, ...)
                 break;
             case 'u':
                 unum = va_arg(args, unsigned int);
+		unum = ( unum < 0) ? -unum : unum;
                 print_number(unum);
                 break;
             case 'b':
