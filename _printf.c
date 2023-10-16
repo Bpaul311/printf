@@ -12,7 +12,7 @@ int print_str(char *arr)
 	{
 		while (arr != NULL && *arr != '\0')
 		{
-			write(1, arr++, sizeof(char));
+			_putchar(*(arr++));
 			buff_size++;
 		}
 	}
@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 	unsigned int unum;
 	char c;
 	char *str;
-	int num, binary;
+	unsigned int num, binary;
 	int buff_size = 0;
 	va_list args;
 
