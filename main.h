@@ -5,8 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
-#include <strings.h>
-#include <string.h>
 #include <stdarg.h>
 #include <unistd.h>
 /*function prototypes*/
