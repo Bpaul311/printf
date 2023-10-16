@@ -73,6 +73,8 @@ int _printf(const char *format, ...)
 				binary = converter(num, 2);
 				print_number(binary);
 				break;
+			case '\0':
+				break;
 			default:
 				_putchar(format[--i]);
 				_putchar(format[++i]);
@@ -87,5 +89,6 @@ int _printf(const char *format, ...)
 			buff_size++;
 		}
 	}
+	va_end(args);
 	return (buff_size);
 }
