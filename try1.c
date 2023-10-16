@@ -82,8 +82,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			c = format[i];
-			write(1, &c, 1);
+			_putchar(format[i]);
 			buff_size++;
 		}
 	}
