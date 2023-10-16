@@ -71,7 +71,7 @@ int _printf(const char *format, ...)
 			case 'b':
 				num = va_arg(args, int);
 				if (num < 0)
-					break;
+					exit(1);
 				unum = (unsigned int) num;
 				binary = converter(unum, 2);
 				buff_size += print_number(binary);
