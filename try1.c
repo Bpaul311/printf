@@ -43,8 +43,11 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 				c = va_arg(args, int);
-				write(1, &c, 1);
-				buff_size++;
+				if (c > 0 && c < 280)
+				{
+					write(1, &c, 1);
+					buff_size++;
+				}
 				break;
 			case 's':
 				str = va_arg(args, char *);
