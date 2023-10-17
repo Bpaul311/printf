@@ -12,7 +12,7 @@ int print_str(char *arr)
 	{
 		while (arr != NULL && *arr != '\0')
 		{
-			write(1, arr++, sizeof(char));
+			_putchar(*(arr++));
 			buff_size++;
 		}
 	}
@@ -26,11 +26,12 @@ int print_str(char *arr)
 int _printf(const char *format, ...)
 {
 	int num_args, i = 0;
-	unsigned int unum, binary;
+	unsigned int unum, base = 2;
 	char c;
 	char *str;
-	int num;
+	char *binary = malloc(sizeof(char) * 36);
 	int buff_size = 0;
+	int buff = 0, num;
 	va_list args;
 
 	va_start(args, format);
@@ -48,6 +49,8 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				str = va_arg(args, char *);
+				if (!str)
+					break;
 				if (str == NULL)
 					buff_size += print_str("(null)");
 				else
@@ -68,8 +71,9 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				unum = va_arg(args, unsigned int);
-				binary = converter(unum, 2);
-				buff_size += print_number(binary);
+				converter(unum, base, binary, &buff);
+				binary[buff] = '\0';
+				buff_size += print_str(binary);
 				break;
 			case '\0':
 				buff_size = -1;
@@ -93,5 +97,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
+	free(binary);
 	return (buff_size);
 }

@@ -4,28 +4,18 @@
  *
  * @num:  An input number in an arbitrary base.
  * @base: The target base for conversion.
- * Return: The converted number in @base
+ * @str : character pointer to conveted number
+ * @buff : the integer pointer to the size in memmory
+ * Return: Nothing
  */
-unsigned int converter(unsigned int num, int base)
-{
-	unsigned int div = num / base;
-	unsigned int res = 0, rem;
-	unsigned int i = 1;
+void converter(unsigned int num, unsigned int base, char *str, int *buff)
+{	
+	if (num > (base - 1))
 
-	while (div > 0)
+		converter(num / base, base, str, buff);
+	if (base < 10)
 	{
-		rem = num % base;
-		num = div;
-		div /= base;
-		rem = rem * i;
-		i *= 10;
-		res = res + rem;
+		str[(*buff)++] = '0' + (num % base);
 	}
-	rem = num % base;
-	num = div;
-	div /= base;
-	rem = rem * i;
-	i *= 10;
-	res = res + rem;
-	return (res);
 }
+ 
