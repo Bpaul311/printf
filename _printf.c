@@ -70,7 +70,7 @@ int _printf(const char *format, ...)
 				print_number(unum);
 				break;
 			case 'b':
-				unum = va_arg(args, unsigned int);
+				unum = (unsigned int)va_arg(args, unsigned int);
 				converter(unum, base, binary, &buff);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
@@ -97,6 +97,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	free(binary);
 	return (buff_size);
 }
