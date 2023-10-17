@@ -26,7 +26,7 @@ int print_str(char *arr)
 int _printf(const char *format, ...)
 {
 	int num_args, i = 0;
-	unsigned int unum, base = 2;
+	unsigned int base = 2;
 	size_t ulnum;
 	char c;
 	char *str;
@@ -36,8 +36,8 @@ int _printf(const char *format, ...)
 	int buff = 0, num;
 	va_list args;
 
-	if (binary == NULL)
-		return (0);
+	if (binary == NULL || format == NULL)
+		return (-1);
 	va_start(args, format);
 	num_args = _strlen(format);
 	for (i = 0; i < num_args; i++)
@@ -84,29 +84,29 @@ int _printf(const char *format, ...)
 				break;
 			case 'o':
 				base = 8;
-				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff, 1);
+				ulnum = va_arg(args, size_t);
+				converter(ulnum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
 			case 'x':
 				base = 16;
-				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff, 0);
+				ulnum = va_arg(args, size_t);
+				converter(ulnum, base, binary, &buff, 0);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
 			case 'X':
 				base = 16;
-				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff, 1);
+				ulnum = va_arg(args, size_t);
+				converter(ulnum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
 			case 'b':
 				base = 2;
-				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff, 1);
+				ulnum = va_arg(args, size_t);
+				converter(ulnum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;

@@ -14,11 +14,7 @@ void print_pointer(void *ptr)
 		return;
 	s[0] = '0';
 	s[1] = 'x';
-	s[2] = '7';
-	s[3] = 'f';
-	s[4] = 'f';
-	s[5] = 'd';
-	buff += 6;
+	buff += 2;
 	converter(p, 16, s, &buff, 0);
 	buff += 2;
 	s[buff] = '\0';

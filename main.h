@@ -8,11 +8,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdint.h>
 /*function prototypes*/
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void converter(unsigned int unum, unsigned int base,
+void converter(unsigned long int unum, unsigned int base,
 			   char *str,
 			   int *buff,
 			   int lowcase);
