@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 {
 	int num_args, i = 0;
 	unsigned int unum, base = 2;
+	size_t ulnum;
 	char c;
 	char *str;
 	void *ptr;
@@ -35,8 +36,8 @@ int _printf(const char *format, ...)
 	int buff = 0, num;
 	va_list args;
 
-	if (binary == NULL)
-		return (0);
+	if (binary == NULL || format == NULL)
+		return (-1);
 	va_start(args, format);
 	num_args = _strlen(format);
 	for (i = 0; i < num_args; i++)
@@ -78,33 +79,33 @@ int _printf(const char *format, ...)
 				buff_size += print_number(num);
 				break;
 			case 'u':
-				unum = va_arg(args, unsigned int);
-				print_number(unum);
+				ulnum = va_arg(args, size_t);
+				print_lnumber(ulnum);
 				break;
 			case 'o':
 				base = 8;
-				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff, 1);
+				ulnum = va_arg(args, size_t);
+				converter(ulnum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
 			case 'x':
 				base = 16;
-				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff, 0);
+				ulnum = va_arg(args, size_t);
+				converter(ulnum, base, binary, &buff, 0);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
 			case 'X':
 				base = 16;
-				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff, 1);
+				ulnum = va_arg(args, size_t);
+				converter(ulnum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
 			case 'b':
 				base = 2;
-				unum = (unsigned int)va_arg(args, unsigned int);
+				unum = va_arg(args, size_t);
 				converter(unum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
@@ -119,7 +120,13 @@ int _printf(const char *format, ...)
 				break;
 			case 'p':
 				ptr = va_arg(args, void *);
+				if (ptr == NULL)
+				{
+					buff_size += print_str("(nil)");
+					break;
+				}
 				print_pointer(ptr);
+				buff_size += 8;
 				break;
 
 			default:

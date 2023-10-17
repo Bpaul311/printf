@@ -8,11 +8,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdint.h>
 /*function prototypes*/
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void converter(unsigned int unum, unsigned int base,
+void converter(unsigned long int unum, unsigned int base,
 			   char *str,
 			   int *buff,
 			   int lowcase);
@@ -22,4 +23,5 @@ int _strlen(const char *s);
 int count_bits(unsigned int num, unsigned int base);
 int print_str_asciivalid(char *arr);
 void print_pointer(void *ptr);
+int print_lnumber(size_t n);
 #endif /*MAIN_H*/

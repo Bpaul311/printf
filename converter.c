@@ -9,7 +9,8 @@
  * @lc: checks if the base will be lowercase
  * Return: Nothing
  */
-void converter(unsigned int n, unsigned int base, char *str, int *bf, int lc)
+void converter(unsigned long int n,
+			   unsigned int base, char *str, int *bf, int lc)
 {
 	char c = 'A';
 
