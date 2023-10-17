@@ -58,6 +58,15 @@ int _printf(const char *format, ...)
 				else
 					buff_size += print_str(str);
 				break;
+			case 'S':
+				str = va_arg(args, char *);
+				if (!str)
+					break;
+				if (str == NULL)
+					buff_size += print_str_asciivalid("(null)");
+				else
+					buff_size += print_str_asciivalid(str);
+				break;
 			case '%':
 				_putchar(format[i]);
 				buff_size++;
