@@ -26,7 +26,7 @@ int print_str(char *arr)
 int _printf(const char *format, ...)
 {
 	int num_args, i = 0;
-	unsigned int base = 2;
+	unsigned int unum, base = 2;
 	size_t ulnum;
 	char c;
 	char *str;
@@ -105,8 +105,8 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				base = 2;
-				ulnum = va_arg(args, size_t);
-				converter(ulnum, base, binary, &buff, 1);
+				unum = va_arg(args, size_t);
+				converter(unum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
