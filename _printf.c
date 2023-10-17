@@ -71,10 +71,10 @@ int _printf(const char *format, ...)
 				print_number(unum);
 				break;
 			case 'b':
-				num = va_arg(args,int);
-				converter(num,2, binary, &buff);
+				num = va_arg(args, int);
+				converter(num, 2, binary, &buff);
 				binary[buff] = '\0';
-				buff_size += print_str(binary);	
+				buff_size += print_str(binary);
 				break;
 			case '\0':
 				buff_size = -1;

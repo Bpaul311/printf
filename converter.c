@@ -4,7 +4,9 @@
  *
  * @num:  An input number in an arbitrary base.
  * @base: The target base for conversion.
- * Return: The converted number in @base
+ * @str : character pointer to conveted number
+ * @buff : the integer pointer to the size in memmory
+ * Return: Nothing
  */
 void converter(int num, int base, char *str, int *buff)
 {
