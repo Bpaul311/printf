@@ -8,7 +8,7 @@
  * @buff : the integer pointer to the size in memmory
  * Return: Nothing
  */
-void converter(int num, int base, char *str, int *buff)
+void converter(unsigned int num, unsigned int base, char *str, int *buff)
 {
 	if (num > (base - 1))
 
