@@ -29,6 +29,7 @@ int _printf(const char *format, ...)
 	unsigned int unum, base = 2;
 	char c;
 	char *str;
+	void *ptr;
 	char *binary = malloc(sizeof(char) * 100);
 	int buff_size = 0;
 	int buff = 0, num;
@@ -116,6 +117,11 @@ int _printf(const char *format, ...)
 				break;
 			case '+':
 				break;
+			case 'p':
+				ptr = va_arg(args, void *);
+				print_pointer(ptr);
+				break;
+
 			default:
 				_putchar(format[--i]);
 				_putchar(format[++i]);
