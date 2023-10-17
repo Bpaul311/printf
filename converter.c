@@ -13,6 +13,7 @@ void converter(unsigned int num, unsigned int base)
 		converter(num / base, base);
 	if (base < 10)
 		putchar('0' + (num % base));
-	else 
+	else
 		putchar('A' + (num % base) - 10);
+	
 }

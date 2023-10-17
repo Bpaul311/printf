@@ -70,7 +70,6 @@ int _printf(const char *format, ...)
 			case 'b':
 				num = va_arg(args, unsigned int);
 				converter(num, 2);
-				putchar ('\n');
 				break;
 			case '\0':
 				buff_size = -1;
