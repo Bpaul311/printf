@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 			case 'b':
 				num = va_arg(args, int);
 				if (num < 0)
-					unum = -num;
+					unum = (unsigned int ) num;
 				converter(unum, base, binary, &buff);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
