@@ -34,6 +34,8 @@ int _printf(const char *format, ...)
 	int buff = 0, num;
 	va_list args;
 
+	if (binary == NULL)
+		return (0);
 	va_start(args, format);
 	num_args = _strlen(format);
 	for (i = 0; i < num_args; i++)
