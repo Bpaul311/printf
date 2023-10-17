@@ -8,13 +8,16 @@
  * @buff : the integer pointer to the size in memmory
  * Return: Nothing
  */
-void converter(unsigned int num, unsigned int base, char *str, int *buff)
-{
-	if (num > (base - 1))
-
-		converter(num / base, base, str, buff);
-	if (base < 10)
-	{
-		str[(*buff)++] = '0' + (num % base);
-	}
+void converter(int num, int base, char *output,int *buffsize) {
+    if (num >= base) {
+        converter(num / base, base, output, buffsize);
+    }
+    if (base < 10) {
+        output[(*buffsize)++] = '0' + (num % base);
+    } else {
+        if (  (num % base) > 9)
+        output[(*buffsize)++] = 'A' + ((num % base) - 10);
+        else
+        output[(*buffsize)++] = '0' + (num % base);
+    }
 }
