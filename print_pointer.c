@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *print_pointer - prints a pointer in hexadecimal
- *@ptr - accepts a void pointer
- *Return - nothing
+ * print_pointer - prints a pointer in hexadecimal
+ * @ptr: accepts a void pointer
+ * Return: nothing
  */
 void print_pointer(void *ptr)
 {
