@@ -6,7 +6,7 @@
  */
 void print_pointer(void *ptr)
 {
-	char *s = malloc(sizeof(char) * 13);
+	char *s = malloc(sizeof(char) * 20);
 	int buff = 0;
 	intptr_t p = (intptr_t)ptr;
 
