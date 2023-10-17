@@ -12,9 +12,9 @@ void print_pointer(void *ptr)
 
 	if (s == NULL)
 		return;
-	converter(p, 16, s, &buff, 0);
 	s[0] = '0';
 	s[1] = 'x';
+	converter(p, 16, s, &buff, 0);
 	buff += 2;
 	s[buff] = '\0';
 	print_str(s);
