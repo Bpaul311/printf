@@ -1,38 +1,47 @@
 #include "main.h"
 /**
- * converter - Converts a number from an arbitrary base to @base
+ * converter - Converts a nber from an arbitrary base to @base
  *
- * @num:  An input number in an arbitrary base.
+ * @n:  An input nber in an arbitrary base.
  * @base: The target base for conversion.
- * @str : character pointer to conveted number
- * @buff : the integer pointer to the size in memmory
+ * @str: character pointer to conveted nber
+ * @bf: the integer pointer to the size in memmory
+ * @lc: checks if the base will be lowercase
  * Return: Nothing
  */
-void converter(int num, int base, char *output,int *buffsize) {
-    if (num >= base) {
-        converter(num / base, base, output, buffsize);
-    }
-    if (base < 10) {
-        output[(*buffsize)++] = '0' + (num % base);
-    } else {
-        if (  (num % base) > 9)
-        output[(*buffsize)++] = 'A' + ((num % base) - 10);
-        else
-        output[(*buffsize)++] = '0' + (num % base);
-    }
+void converter(unsigned int n, unsigned int base, char *str, int *bf, int lc)
+{
+	char c = 'A';
+
+	if (lc == 0)
+		c = 'a';
+	if (n >= base)
+		converter(n / base, base, str, bf, lc);
+	if (base < 10)
+	{
+		str[(*bf)++] = '0' + (n % base);
+	}
+	else
+	{
+		if ((n % base) > 9)
+			str[(*bf)++] = c + ((n % base) - 10);
+		else
+			str[(*bf)++] = '0' + (n % base);
+	}
+}
 /**
- * count_bits - counts the number of characters needed in @base
- * @num: the number to count bits need for
+ * count_bits - counts the nber of characters needed in @base
+ * @n: the nber to count bits need for
  * @base: the base of the result string
  * Return: size needed
  */
-int count_bits(unsigned int num, unsigned int base)
+int count_bits(unsigned int n, unsigned int base)
 {
 	int count = 0;
 
-	while (num != 0)
+	while (n != 0)
 	{
-		num /= base;
+		n /= base;
 		count++;
 	}
 	return (count);

@@ -12,7 +12,7 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void converter(unsigned int unum, unsigned int base, char *str, int *buff);
+void converter(unsigned int unum, unsigned int base, char *str, int *buff, int lowcase);
 int print_number(int n);
 int print_str(char *arr);
 int _strlen(const char *s);

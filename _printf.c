@@ -74,20 +74,28 @@ int _printf(const char *format, ...)
 			case 'o':
 				base = 8;
 				unum = (unsigned int)va_arg(args, unsigned int);
-                                converter(unum, base, binary, &buff);
-                                binary[buff] = '\0';
-                                buff_size += print_str(binary);
-                                break;
+				converter(unum, base, binary, &buff, 1);
+				binary[buff] = '\0';
+				buff_size += print_str(binary);
+				break;
 			case 'x':
 				base = 16;
-                                unum = (unsigned int)va_arg(args, unsigned int);
-                                converter(unum, base, binary, &buff);
-                                binary[buff] = '\0';
-                                buff_size += print_str(binary);
+				unum = (unsigned int)va_arg(args, unsigned int);
+				converter(unum, base, binary, &buff, 0);
+				binary[buff] = '\0';
+				buff_size += print_str(binary);
+				break;
+			case 'X':
+				base = 16;
+				unum = (unsigned int)va_arg(args, unsigned int);
+				converter(unum, base, binary, &buff, 1);
+				binary[buff] = '\0';
+				buff_size += print_str(binary);
+				break;
 			case 'b':
 				base = 2;
 				unum = (unsigned int)va_arg(args, unsigned int);
-				converter(unum, base, binary, &buff);
+				converter(unum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
 				break;
