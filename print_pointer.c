@@ -8,7 +8,7 @@ void print_pointer(void *ptr)
 {
 	char *s = malloc(sizeof(char) * 20);
 	int buff = 0;
-	intptr_t p = (intptr_t)ptr;
+	uintptr_t p = (uintptr_t)ptr;
 
 	if (s == NULL)
 		return;
