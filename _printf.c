@@ -125,11 +125,8 @@ int _printf(const char *format, ...)
 					buff_size += print_str("(nil)");
 					break;
 				}
-				else
-				{
-					print_pointer(ptr);
-					buff_size += 8;
-				}
+				print_pointer(ptr);
+				buff_size += 8;
 				break;
 
 			default:
