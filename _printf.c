@@ -120,6 +120,7 @@ int _printf(const char *format, ...)
 			case 'p':
 				ptr = va_arg(args, void *);
 				print_pointer(ptr);
+				buff_size += 8;
 				break;
 
 			default:

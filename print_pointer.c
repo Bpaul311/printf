@@ -2,17 +2,18 @@
 /**
  *print_pointer - prints a pointer in hexadecimal
  *@ptr - accepts a void pointer
- *Return - nothing 
+ *Return - nothing
  */
 void print_pointer(void *ptr)
 {
-	char *s = malloc(sizeof(char) *  13);
+	char *s = malloc(sizeof(char) * 13);
 	int buff = 0;
-	intptr_t p = (intptr_t) ptr;
+	intptr_t p = (intptr_t)ptr;
+
 	if (s == NULL)
 		return;
 	converter(p, 16, s, &buff, 0);
 	s[buff] = '\0';
 	print_str(s);
-	free (s);
+	free(s);
 }
