@@ -99,5 +99,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
+	free(binary);
 	return (buff_size);
 }
