@@ -26,10 +26,13 @@ int print_str(char *arr)
 int _printf(const char *format, ...)
 {
 	int num_args, i = 0;
-	unsigned int unum, binary, num;
+	unsigned int unum;
+	int num;
 	char c;
 	char *str;
+	char *binary = malloc(sizeof (char) * 36);
 	int buff_size = 0;
+	int buff = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -68,8 +71,10 @@ int _printf(const char *format, ...)
 				print_number(unum);
 				break;
 			case 'b':
-				num = va_arg(args, unsigned int);
-				converter(num, 2);
+				num = va_arg(args,int);
+				converter(num,2, binary, &buff);
+				binary[buff] = '\0';
+				buff_size += print_str(binary);	
 				break;
 			case '\0':
 				buff_size = -1;
@@ -93,5 +98,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
+	free (binary);
 	return (buff_size);
 }
