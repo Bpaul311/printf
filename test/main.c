@@ -9,18 +9,13 @@
  */
 int main(void)
 {
-    int len;
-    int len2;
-    unsigned int ui;
-    len = _printf("Let's try to printf [%");
-    len2 = printf("Let's try to printf [%");
-    ui = (unsigned int)INT_MAX + 1024;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Negative:[%d]\n", -762534);
-    printf("Negative:[%d]\n", -762534);
-    _printf("Unsigned:[%u]\n", ui);
-    printf("Unsigned:[%u]\n", ui);
-    _printf("%b\n",98);
+        int num = 42;
+    int *ptr = &num;
+
+    printf("Address of pointer: ");
+    print_custom_pointer(ptr);
+    printf("address using printf is %p", ptr);
+    printf("\n");
+
     return (0);
 }

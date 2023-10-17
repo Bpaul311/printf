@@ -126,7 +126,6 @@ int _printf(const char *format, ...)
 					break;
 				}
 				print_pointer(ptr);
-				buff_size += 8;
 				break;
 
 			default:
