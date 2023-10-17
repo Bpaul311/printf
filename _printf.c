@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 	int num;
 	char c;
 	char *str;
-	char *binary = malloc(sizeof (char) * 36);
+	char *binary = malloc(sizeof(char) * 36);
 	int buff_size = 0;
 	int buff = 0;
 	va_list args;
@@ -98,6 +98,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	free (binary);
+	free(binary);
 	return (buff_size);
 }
