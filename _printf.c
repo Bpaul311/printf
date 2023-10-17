@@ -120,11 +120,6 @@ int _printf(const char *format, ...)
 				break;
 			case 'p':
 				ptr = va_arg(args, void *);
-				if (ptr == NULL)
-				{
-					buff_size += print_str("(nil)");
-					break;
-				}
 				print_pointer(ptr);
 				break;
 
