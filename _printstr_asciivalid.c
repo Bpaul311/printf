@@ -21,7 +21,7 @@ int print_str_asciivalid(char *arr)
 				_putchar('\\');
 				_putchar('x');
 				converter(*arr, 16, res, &buff, 1);
-				if (*arr <= 16)
+				if (*arr < 16)
 				{
 					res[1] = res[0];
 					res[0] = '0';
