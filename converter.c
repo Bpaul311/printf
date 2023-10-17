@@ -11,7 +11,6 @@
 void converter(unsigned int num, unsigned int base, char *str, int *buff)
 {
 	if (num > (base - 1))
-
 		converter(num / base, base, str, buff);
 	if (base < 10)
 	{

@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 	unsigned int unum, base = 2;
 	char c;
 	char *str;
-	char *binary = malloc(sizeof(char) * 23);
+	char *binary = malloc(sizeof(char) * 100);
 	int buff_size = 0;
 	int buff = 0, num;
 	va_list args;
@@ -99,6 +99,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	free(binary);
 	return (buff_size);
 }
