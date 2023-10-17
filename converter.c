@@ -20,4 +20,20 @@ void converter(int num, int base, char *output,int *buffsize) {
         else
         output[(*buffsize)++] = '0' + (num % base);
     }
+/**
+ * count_bits - counts the number of characters needed in @base
+ * @num: the number to count bits need for
+ * @base: the base of the result string
+ * Return: size needed
+ */
+int count_bits(unsigned int num, unsigned int base)
+{
+	int count = 0;
+
+	while (num != 0)
+	{
+		num /= base;
+		count++;
+	}
+	return (count);
 }
