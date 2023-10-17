@@ -120,6 +120,8 @@ int _printf(const char *format, ...)
 				break;
 			case 'p':
 				ptr = va_arg(args, void *);
+				if (ptr == NULL)
+					print_str("(nil)");
 				print_pointer(ptr);
 				break;
 
