@@ -1,22 +1,16 @@
 #include "main.h"
 /**
- * print_number - prints an integer using _putchar
+ * print_lnumber - prints an integer using _putchar
  * @n: the integer to print
  * Return: size of the number printed
  */
 
-int print_number(int n)
+int print_lnumber(size_t n)
 {
 	unsigned int tmp = 1000000000;
 	unsigned int n2, x, t2;
 	int buff_size = 0;
 
-	if (n < 0)
-	{
-		_putchar('-');
-		buff_size++;
-		n = -n;
-	}
 	n2 = n;
 	x = n;
 

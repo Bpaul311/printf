@@ -27,6 +27,7 @@ int _printf(const char *format, ...)
 {
 	int num_args, i = 0;
 	unsigned int unum, base = 2;
+	size_t ulnum;
 	char c;
 	char *str;
 	void *ptr;
@@ -78,8 +79,8 @@ int _printf(const char *format, ...)
 				buff_size += print_number(num);
 				break;
 			case 'u':
-				unum = va_arg(args, unsigned int);
-				print_number(unum);
+				ulnum = va_arg(args, size_t);
+				print_lnumber(ulnum);
 				break;
 			case 'o':
 				base = 8;

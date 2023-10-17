@@ -22,4 +22,5 @@ int _strlen(const char *s);
 int count_bits(unsigned int num, unsigned int base);
 int print_str_asciivalid(char *arr);
 void print_pointer(void *ptr);
+int print_lnumber(size_t n);
 #endif /*MAIN_H*/
