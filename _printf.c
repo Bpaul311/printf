@@ -121,7 +121,7 @@ int _printf(const char *format, ...)
 			case 'p':
 				ptr = va_arg(args, void *);
 				if (ptr == NULL)
-					print_lnum(nil);
+					print_lnumber(nil);
 				print_pointer(ptr);
 				break;
 
