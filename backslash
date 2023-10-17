@@ -1,7 +1,7 @@
 #include "main.h"
 /*
  * backslash - handles / cases
- * buffer size: number of elements 
+ * buffer size: number of elements
  * format: character after baclslash
  * Return : number of elements
  */

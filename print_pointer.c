@@ -16,8 +16,7 @@ void print_pointer(void *ptr)
 	s[0] = '0';
 	s[1] = 'x';
 	for (i = 15 ; i >= 2; i--)
-	{	
-		s[i] = hexs[p & 0xF];
+	{	s[i] = hexs[p & 0xF];
 		p >>= 4;
 	}
 	s[16] = '\0';
