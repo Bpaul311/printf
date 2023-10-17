@@ -39,5 +39,6 @@ int print_str_asciivalid(char *arr)
 			}
 		}
 	}
+	free(res);
 	return (buff_size);
 }
