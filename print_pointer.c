@@ -11,9 +11,6 @@ void print_pointer(void *ptr)
 	intptr_t p = (intptr_t) ptr;
 	if (s == NULL)
 		return;
-	s[0] = '0';
-	s[1] = 'x';
-	buff += 2;
 	converter(p, 16, s, &buff, 0);
 	s[buff] = '\0';
 	print_str(s);
