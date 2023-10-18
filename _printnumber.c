@@ -21,7 +21,7 @@ int print_number(int n)
 	x = n;
 
 	while (tmp >= 10)
-	{
+ 	{
 		if (n2 >= tmp)
 		{
 			_putchar('0' + (n2 / tmp));
