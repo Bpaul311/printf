@@ -42,7 +42,9 @@ int _printf(const char *format, ...)
 	{
 		binary = malloc(sizeof(char) * 100);
 		buff = 0;
-		if (binary == NULL || format == NULL)
+		if (binary == NULL)
+			return (-1);
+		if (format == 0 || format == NULL)
 		{
 			free(binary);
 			va_end(args);
