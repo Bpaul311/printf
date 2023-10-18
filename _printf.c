@@ -53,9 +53,8 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				str = va_arg(args, char *);
-				if (!str)
-					break;
-				if (str == NULL)
+
+				if (str == NULL || !str)
 					buff_size += print_str("(null)");
 				else
 					buff_size += print_str(str);
