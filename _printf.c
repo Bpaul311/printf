@@ -46,8 +46,9 @@ int _printf(const char *format, ...)
 		{
 			free(binary);
 			va_end(args);
+			return (-1);
 		}
-		return (-1);
+
 		if (format[i] == '%')
 		{
 			switch (format[++i])
