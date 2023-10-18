@@ -88,6 +88,45 @@ int _printf(const char *format, ...)
 				ulnum = va_arg(args, size_t);
 				buff_size += print_lnumber(ulnum);
 				break;
+			case '#':
+				switch (format[++i])
+				{
+				case 'o':
+
+					_putchar('0');
+					buff_size++;
+					base = 8;
+					ulnum = va_arg(args, unsigned int);
+					converter(ulnum, 8, binary, &buff, 1);
+					binary[buff] = '\0';
+					buff_size += print_str(binary);
+					break;
+
+				case 'x':
+					_putchar('0');
+					_putchar('x');
+					buff_size += 2;
+					base = 16;
+					ulnum = va_arg(args, size_t);
+					converter(ulnum, base, binary, &buff, 0);
+					binary[buff] = '\0';
+					buff_size += print_str(binary);
+					break;
+				case 'X':
+					_putchar('0');
+					_putchar('X');
+					buff_size += 2;
+					base = 16;
+					ulnum = va_arg(args, size_t);
+					converter(ulnum, base, binary, &buff, 1);
+					binary[buff] = '\0';
+					buff_size += print_str(binary);
+					break;
+				default:
+					ulnum = va_arg(args, size_t);
+					break;
+				}
+				break;
 			case 'o':
 				base = 8;
 				ulnum = va_arg(args, unsigned int);
@@ -123,19 +162,19 @@ int _printf(const char *format, ...)
 			case ' ':
 				/*handle spaces*/
 				i++;
-                                if (format[i++] == 'd' || format[i++] == 'i')
-                                {
+				if (format[i++] == 'd' || format[i++] == 'i')
+				{
 
-                                        num = va_arg(args, int);
-                                        if (num >= 0)
-                                        {
-                                                _putchar(' ');
-                                                buff_size++;
-                                        }
+					num = va_arg(args, int);
+					if (num >= 0)
+					{
+						_putchar(' ');
+						buff_size++;
+					}
 
-                                        buff_size += print_number(num);
-                                }
-                                break;
+					buff_size += print_number(num);
+				}
+				break;
 			case '+':
 				i++;
 				if (format[i++] == 'd' || format[i++] == 'i')
@@ -151,6 +190,7 @@ int _printf(const char *format, ...)
 					buff_size += print_number(num);
 				}
 				break;
+
 			case 'p':
 				ptr = va_arg(args, void *);
 				if (ptr == NULL)
