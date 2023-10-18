@@ -118,14 +118,37 @@ int _printf(const char *format, ...)
 			case '\0':
 				buff_size = -1;
 				break;
-			case '-':
-				/*handle the - flag*/
-				break;
+			case ' ':
+				/*handle spaces*/
+				i++;
+                                if (format[i++] == 'd' || format[i++] == 'i')
+                                {
+
+                                        num = va_arg(args, int);
+                                        if (num >= 0)
+                                        {
+                                                _putchar(' ');
+                                                buff_size++;
+                                        }
+
+                                        buff_size += print_number(num);
+                                }
+                                break;
 			case '+':
-				num = va_arg(args, int);
-				(num < 0) ? print_number(num) : _putchar('+'+ print_number(num));
-			        break;	
-				
+				i++;
+				if (format[i++] == 'd' || format[i++] == 'i')
+				{
+
+					num = va_arg(args, int);
+					if (num >= 0)
+					{
+						_putchar('+');
+						buff_size++;
+					}
+
+					buff_size += print_number(num);
+				}
+				break;
 			case 'p':
 				ptr = va_arg(args, void *);
 				if (ptr == NULL)
