@@ -10,8 +10,6 @@ int print_str_asciivalid(char *arr)
 	char *res;
 	int buff = 0;
 
-	if (res == NULL)
-		return (0);
 	if (*arr)
 	{
 		while (arr != NULL && *arr != '\0')
