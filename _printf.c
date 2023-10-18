@@ -124,7 +124,10 @@ int _printf(const char *format, ...)
 				/*handle the - flag*/
 				break;
 			case '+':
-				break;
+				num = va_arg(args, int);
+				(num < 0) ? print_number(num) : _putchar('+'+ print_number(num));
+			        break;	
+				
 			case 'p':
 				ptr = va_arg(args, void *);
 				if (ptr == NULL)
@@ -133,6 +136,7 @@ int _printf(const char *format, ...)
 					break;
 				}
 				print_pointer(ptr);
+				buff_size += 14;
 				break;
 
 			default:

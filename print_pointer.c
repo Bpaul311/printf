@@ -6,22 +6,17 @@
  */
 void print_pointer(void *ptr)
 {
-	char *s = malloc(sizeof(char) * 24);
-	unsigned long  p = (unsigned long)ptr;
-	int i;
-	char hexs[] = "0123456789abcdef";
+	char *s = malloc(sizeof(char) * 20);
+	uintptr_t p = (uintptr_t)ptr;
+	int buff = 0;
 
-	if (s == NULL)
+	if (s == NULL || !ptr)
 		return;
 	s[0] = '0';
 	s[1] = 'x';
-	for (i = 15 ; i >= 2; i--)
-	{	s[i] = hexs[p & 0xF];
-		p >>= 4;
-	}
-	s[16] = '\0';
-	for (i = 0; s[i]; i++)
-		_putchar(s[i]);
-
+	buff += 2;
+	converter(p, 16, s, &buff, 0);
+	s[buff] = '\0';
+	print_str(s);
 	free(s);
 }
