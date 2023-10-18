@@ -31,17 +31,19 @@ int _printf(const char *format, ...)
 	char c;
 	char *str;
 	void *ptr;
-	char *binary = malloc(sizeof(char) * 100);
+	char *binary;
 	int buff_size = 0;
 	int buff = 0, num;
 	va_list args;
 
-	if (binary == NULL || format == NULL)
-		return (-1);
 	va_start(args, format);
 	num_args = _strlen(format);
 	for (i = 0; i < num_args; i++)
 	{
+		binary = malloc(sizeof(char) * 100);
+		buff = 0;
+		if (binary == NULL || format == NULL)
+			return (-1);
 		if (format[i] == '%')
 		{
 			switch (format[++i])
@@ -108,6 +110,7 @@ int _printf(const char *format, ...)
 				converter(unum, base, binary, &buff, 1);
 				binary[buff] = '\0';
 				buff_size += print_str(binary);
+
 				break;
 			case '\0':
 				buff_size = -1;
@@ -139,8 +142,9 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			buff_size++;
 		}
+		free(binary);
 	}
 	va_end(args);
-	free(binary);
+
 	return (buff_size);
 }
