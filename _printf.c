@@ -81,7 +81,7 @@ int _printf(const char *format, ...)
 				break;
 			case 'u':
 				ulnum = va_arg(args, size_t);
-				print_lnumber(ulnum);
+				buff_size += print_lnumber(ulnum);
 				break;
 			case 'o':
 				base = 8;
