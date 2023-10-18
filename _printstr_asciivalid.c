@@ -7,7 +7,7 @@
 int print_str_asciivalid(char *arr)
 {
 	int buff_size = 0;
-	char *res = malloc(sizeof(char) * 3);
+	char *res;
 	int buff = 0;
 
 	if (res == NULL)
@@ -18,6 +18,11 @@ int print_str_asciivalid(char *arr)
 		{
 			if ((*arr < 32 && *arr > 0) || (*arr >= 127))
 			{
+				res = malloc(sizeof(char) * 3);
+				buff = 0;
+
+				if (res == NULL)
+					return (0);
 				_putchar('\\');
 				_putchar('x');
 				converter(*arr, 16, res, &buff, 1);
@@ -29,6 +34,7 @@ int print_str_asciivalid(char *arr)
 				}
 				res[buff] = '\0';
 				print_str(res);
+				free(res);
 				arr++;
 				buff_size += 4;
 			}
@@ -39,6 +45,5 @@ int print_str_asciivalid(char *arr)
 			}
 		}
 	}
-	free(res);
 	return (buff_size);
 }
