@@ -28,7 +28,6 @@ int _printf(const char *format, ...)
 	int num_args, i = 0;
 	unsigned int unum, base = 2;
 	size_t ulnum;
-	long int lnum;
 	char c;
 	char *str;
 	void *ptr;
@@ -37,7 +36,6 @@ int _printf(const char *format, ...)
 	int buff = 0, num;
 	va_list args;
 
-	(void)lnum;
 	va_start(args, format);
 	num_args = _strlen(format);
 	for (i = 0; i < num_args; i++)
