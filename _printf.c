@@ -43,7 +43,11 @@ int _printf(const char *format, ...)
 		binary = malloc(sizeof(char) * 100);
 		buff = 0;
 		if (binary == NULL || format == NULL)
-			return (-1);
+		{
+			free(binary);
+			va_end(args);
+		}
+		return (-1);
 		if (format[i] == '%')
 		{
 			switch (format[++i])
@@ -63,9 +67,7 @@ int _printf(const char *format, ...)
 				break;
 			case 'S':
 				str = va_arg(args, char *);
-				if (!str)
-					break;
-				if (str == NULL)
+				if (str == NULL || !str)
 					buff_size += print_str_asciivalid("(null)");
 				else
 					buff_size += print_str_asciivalid(str);
