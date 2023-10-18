@@ -169,7 +169,8 @@ int _printf(const char *format, ...)
 				break;
 			case ' ':
 				/*handle spaces*/
-				if (format[++i] == 'd' || format[++i] == 'i')
+				i++;
+				if (format[i] == 'd' || format[i] == 'i')
 				{
 					num = va_arg(args, int);
 					if (num >= 0)
@@ -182,7 +183,8 @@ int _printf(const char *format, ...)
 				}
 				break;
 			case '+':
-				if (format[++i] == 'd' || format[++i] == 'i')
+				i++;
+				if (format[i] == 'd' || format[i] == 'i')
 				{
 
 					num = va_arg(args, int);
@@ -191,7 +193,6 @@ int _printf(const char *format, ...)
 						_putchar('+');
 						buff_size++;
 					}
-
 					buff_size += print_number(num);
 				}
 				break;
