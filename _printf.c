@@ -92,32 +92,40 @@ int _printf(const char *format, ...)
 				switch (format[++i])
 				{
 				case 'o':
-
-					_putchar('0');
-					buff_size++;
 					base = 8;
 					ulnum = va_arg(args, unsigned int);
+					if (ulnum > 0)
+					{
+						_putchar('0');
+						buff_size++;
+					}
 					converter(ulnum, 8, binary, &buff, 1);
 					binary[buff] = '\0';
 					buff_size += print_str(binary);
 					break;
 
 				case 'x':
-					_putchar('0');
-					_putchar('x');
-					buff_size += 2;
 					base = 16;
 					ulnum = va_arg(args, size_t);
+					if (ulnum > 0)
+					{
+						_putchar('0');
+						_putchar('x');
+						buff_size += 2;
+					}
 					converter(ulnum, base, binary, &buff, 0);
 					binary[buff] = '\0';
 					buff_size += print_str(binary);
 					break;
 				case 'X':
-					_putchar('0');
-					_putchar('X');
-					buff_size += 2;
 					base = 16;
 					ulnum = va_arg(args, size_t);
+					if (ulnum > 0)
+					{
+						_putchar('0');
+						_putchar('X');
+						buff_size += 2;
+					}
 					converter(ulnum, base, binary, &buff, 1);
 					binary[buff] = '\0';
 					buff_size += print_str(binary);
